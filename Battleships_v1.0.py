@@ -117,7 +117,70 @@ def print_board():
             else:
                 print(board[row][col], end=" ")
         print("")
+
+def accept_valid_bullet_placement():
     
+    global alphabet
+    global board
+    
+    no_errors_with_shot = False
+    row = -1
+    col = -1
+    while no_errors_with_shot is False:
+        placement = input("Enter a row and column to attack, like \"B5\":    ")
+        placement = placement.upper()
+        if len(placement) <= 0 or len(placement > 2):
+            print("Error: Please enter only one row and column")
+            continue
+        row = placement[0]
+        col = placement[1]
+        if not row.isalpha() or not col.isnumeric():
+            print("Error: Please enter a letter and then a number...")
+            continue
+        row = alphabet.find(row)
+        if not (-1 < row < board_size):
+            print("Error: Please enter a letter and then a number...")
+            continue
+        col = int(col)
+        if not (-1 < col < board_size):
+            print("Error: Please enter a letter and then a number...")
+            continue
+        if board[row][col] == "#" or board[row][col] == "X":
+            print("You've already attacked this position...")
+            continue
+        if board[row][col] == "." or board[row][col] == "O":
+            no_errors_with_shot = True
+            
+    return row, col
+        
+
+def check_for_ship_sunk(row, col):
+    pass
+
+def shoot_target():
+    
+    global board
+    global num_ships_sunk
+    global ammo
+    
+    row, col = accept_valid_bullet_placement()
+    
+    print("")
+    print("_____________________________")
+    
+    if board[row][col] == ".":
+        print("You missed, no ship was hit...")
+        board[row][col] = "#"
+    elif board[row][col] == "O":
+        print("You hit!", end=" ")
+        board[row][col] = "X"
+        if check_for_ship_sunk(row, col):
+            print("You completely sunk a ship!")
+            num_ships_sunk += 1
+        else:
+            print("You shot a ship")
+    
+    ammo -= 1
 
 def main():
     
