@@ -78,8 +78,24 @@ def try_to_place_ship_on_board(row, col, direction, length):
     return validate_board_and_place_ship(start_row, end_row, start_col, end_col) 
 
 def validate_board_and_place_ship(start_row, end_row, start_col, end_col):
-    pass   
     
+    global board
+    global ship_positions
+    
+    no_errors = True
+    for r in range(start_row, end_row):
+        for c in range(start_col, end_col):
+            # for the postisions on the board check if there is another thing in that position
+            if board[r][c] != ".":
+                no_errors = False
+                break
+    if no_errors:
+        ship_positions.append([start_row, end_row, start_col, end_col])
+        for r in range(start_row, end_col):
+            for c in range(start_col, end_col):
+                # If there is nothing in that position, place a ship there
+                board[r][c] = "O"
+    return no_errors
 
 def main():
     
