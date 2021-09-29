@@ -211,6 +211,11 @@ def check_game_status():
 
 def main():
     
+    global game_over
+    global num_of_ships
+    global num_ships_sunk
+    global ammo
+    
     print("""
                     Welcome to...          
           _                                    
@@ -226,9 +231,14 @@ def main():
     
     create_board()
     
+    while game_over is False:
+        print_board()
+        print("There are {ships} ships remaining, You have sunk {ships_sunk} ships".format(ships=num_of_ships, ships_sunk=num_ships_sunk))
+        print("You have {ammo} rounds of ammo remaining".format(ammo=ammo))
+        shoot_target()
+        print("________________________________")
+        print("")
+        check_game_status()
     
-    
-    
-
 if __name__ == '__main__':
     main()
