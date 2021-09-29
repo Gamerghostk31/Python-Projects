@@ -97,6 +97,28 @@ def validate_board_and_place_ship(start_row, end_row, start_col, end_col):
                 board[r][c] = "O"
     return no_errors
 
+def print_board():
+    
+    global board
+    global alphabet
+    
+    dev_mode = True
+    
+    alphabet = alphabet[0: len(board) + 1]
+    
+    for row in range(len(board)):
+        print(alphabet[row], end=") ")
+        for col in range(len(board[row])):
+            if board[row][col] == "O":
+                if dev_mode:
+                    print("O", end=" ")
+                else:
+                    print(".", end=" ")
+            else:
+                print(board[row][col], end=" ")
+        print("")
+    
+
 def main():
     
     print("""
