@@ -50,8 +50,36 @@ def create_board():
         if try_to_place_ship_on_board(random_row, random_col, direction, ship_size):
             num_of_ships_placed += 1
 
-def try_to_place_ship_on_board():
-    pass
+def try_to_place_ship_on_board(row, col, direction, length):
+    
+    global board_size
+    # If they return false, loop will replay with new random positions
+    start_row, end_row, start_col, end_col = row, row + 1, col, col + 1, col
+    if direction == "left":
+        if col - length < 0:
+            return False
+        start_col = col - length + 1
+    
+    elif direction == "right":
+        if col + length >= board_size:
+            return False
+        end_col = col + length
+        
+    elif direction == "up":
+        if row - length < 0:
+            return False
+        start_row = row - length + 1
+        
+    elif direction == "down":
+        if row + length >= board_size:
+            return False
+        end_row = row + length
+    
+    return validate_board_and_place_ship(start_row, end_row, start_col, end_col) 
+
+def validate_board_and_place_ship(start_row, end_row, start_col, end_col):
+    pass   
+    
 
 def main():
     
