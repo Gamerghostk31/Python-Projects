@@ -54,7 +54,7 @@ def try_to_place_ship_on_board(row, col, direction, length):
     
     global board_size
     # If they return false, loop will replay with new random positions
-    start_row, end_row, start_col, end_col = row, row + 1, col, col + 1, col
+    start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
     if direction == "left":
         if col - length < 0:
             return False
