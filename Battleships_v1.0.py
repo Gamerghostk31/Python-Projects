@@ -37,7 +37,21 @@ def create_board():
             row.append(".")
         board.append(row)
 
-    print(board)
+    num_of_ships_placed = 0
+    
+    ship_positions = []
+
+    while num_of_ships_placed != num_of_ships:
+        random_row = random.randint(0, rows - 1)
+        random_col = random.randint(0, cols - 1)
+        direction = random.choice(["left", "right", "up", "down"])
+        ship_size = random.randint(3, 5)
+        # If method returns true, place a ship on the board and add 1 to num of ships placed
+        if try_to_place_ship_on_board(random_row, random_col, direction, ship_size):
+            num_of_ships_placed += 1
+
+def try_to_place_ship_on_board():
+    pass
 
 def main():
     
