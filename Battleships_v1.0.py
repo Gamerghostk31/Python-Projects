@@ -1,6 +1,5 @@
-# Author: Basson Koch
+# Author: Basson Koch | Date: 29/09/2021
 # Project Name: Battleships
-# Description: 
 
 # Modules
 import random
