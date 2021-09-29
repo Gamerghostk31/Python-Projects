@@ -195,7 +195,19 @@ def shoot_target():
     
     ammo -= 1
 
-
+def check_game_status():
+    
+    global game_over
+    global ammo
+    global num_of_ships
+    global num_ships_sunk
+    
+    if num_of_ships == num_ships_sunk:
+        print("YOU WIN! CONGRATULATIONS!!!")
+        game_over = True
+    elif  ammo <= 0:
+        print("Sorry, you're out of ammo... GAME OVER")
+        game_over = True
 
 def main():
     
