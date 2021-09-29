@@ -129,7 +129,7 @@ def accept_valid_bullet_placement():
     while no_errors_with_shot is False:
         placement = input("Enter a row and column to attack, like \"B5\":    ")
         placement = placement.upper()
-        if len(placement) <= 0 or len(placement > 2):
+        if len(placement) <= 0 or len(placement) > 2:
             print("Error: Please enter only one row and column")
             continue
         row = placement[0]
