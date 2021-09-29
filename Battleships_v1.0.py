@@ -117,6 +117,11 @@ def print_board():
             else:
                 print(board[row][col], end=" ")
         print("")
+    
+    print("  ", end=" ")
+    for i in range(len(board[0])):
+        print(str(i), end=" ")
+    print("")
 
 def accept_valid_bullet_placement():
     
