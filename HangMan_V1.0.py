@@ -21,9 +21,6 @@ def pick_word():
     global original_word
     global letters
     
-    
-    
-    
     random.seed(time.time())
     word = wordlist[random.randint(1, len(wordlist))]
     original_word = word.replace(" ", "")
@@ -44,10 +41,10 @@ def get_input():
     while no_errors is False:
         print("____________________________________________________________________")
         guess = input("Type in any letter from A-Z:      ")
-        print("____________________________________________________________________")
+        print("____________________________________________________________________\n")
         guess.lower()
         if (len(guess) <= 0 or len(guess) >= 2) or guess.isnumeric():
-            print("please type only one letter for your guess...")
+            print("please type only one letter for your guess...\n")
             continue
         else:
             no_errors = True              
@@ -64,29 +61,52 @@ def check_word():
     
     letters_used = ""
     
-    if guess in word:
-        for i in range(len(original_word)):
-            if original_word[i] == guess:
-                letters[i] = guess
+    no_errors = False
+    while no_errors is False:
         
-        for element in letters:
-            letters_used += str(element)
+        if guess in word:
+            for i in range(len(original_word)):
+                if original_word[i] == guess:
+                    letters[i] = guess
+        
+            for element in letters:
+                letters_used += str(element)
             
-        word1 = word.replace(guess, "")
-        word = word1
+            word1 = word.replace(guess, "")
+            word = word1
+            print("\n                   WELL DONE")
+            
+            if mistakes >= 1:
+                draw_picture()
+            update_score()
+            
+            no_errors = True
         
-        if mistakes > 1:
-            draw_picture()
-        update_score()
-        
-    else:
-        mistakes += 1
-        print("Oh no, that's an incorrect guess...")
-        incorrect_letters += guess
-        draw_picture()
-        for element in letters:
-            letters_used += str(element)
-        update_score()
+        else:
+            for element in letters:
+                letters_used += str(element)
+                
+            error_here = False
+            for i in range(len(letters)):
+                if letters[i] == guess:
+                    print("\n           You've already guessed that letter")
+                    error_here = True
+                    break
+            
+            if error_here is True:
+                draw_picture()
+                update_score()
+                no_errors = True
+                break
+            else:
+            
+                mistakes += 1
+                print("\n           Oh no, that's an incorrect guess...")
+                incorrect_letters += guess
+            
+                draw_picture()
+                update_score()
+                no_errors = True         
 
 def draw_picture():
     
