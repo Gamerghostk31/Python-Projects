@@ -71,22 +71,27 @@ def check_word():
         
         for element in letters:
             letters_used += str(element)
+            
         word1 = word.replace(guess, "")
         word = word1
+        
         if mistakes > 1:
             draw_picture()
         update_score()
+        
     else:
+        mistakes += 1
         print("Oh no, that's an incorrect guess...")
         incorrect_letters += guess
         draw_picture()
+        for element in letters:
+            letters_used += str(element)
         update_score()
 
 def draw_picture():
     
     global mistakes
     
-    mistakes += 1
     
     if mistakes == 1:
         print("""
@@ -221,9 +226,9 @@ def check_game_over():
     if len(word) == 0:
         print("################################################")
         print("""
-     _              ___        
-\_/ / \ | |   \    / |  |\ | | 
- |  \_/ |_|    \/\/ _|_ | \| o 
+      _              ___        
+ \_/ / \ | |   \    / |  |\ | | 
+  |  \_/ |_|    \/\/ _|_ | \| o 
                                
               """)
         print("################################################")
@@ -232,9 +237,9 @@ def check_game_over():
     if mistakes == 6:
         print("################################################")
         print("""
-     _            _   __ ___      
-\_/ / \ | |   |  / \ (_   |       
- |  \_/ |_|   |_ \_/ __)  | o o o 
+      _            _   __ ___      
+ \_/ / \ | |   |  / \ (_   |       
+  |  \_/ |_|   |_ \_/ __)  | o o o 
                                     
                                
               """)
@@ -243,9 +248,9 @@ def check_game_over():
     
     if game_over:
         print(""" 
- __            _    _        _  _  
-/__  /\  |\/| |_   / \ \  / |_ |_) 
-\_| /--\ |  | |_   \_/  \/  |_ | \ 
+  __            _    _        _  _  
+ /__  /\  |\/| |_   / \ \  / |_ |_) 
+ \_| /--\ |  | |_   \_/  \/  |_ | \ 
    
               """)
 
