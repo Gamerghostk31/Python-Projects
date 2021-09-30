@@ -67,165 +67,111 @@ def draw_picture():
     
     if mistakes == 1:
         print("""
-                      shhhhhhhhhhhhhhhhhhhhhhhhs             
-          `NN/////oNMd/////////////NN`            
-          `NN`  .sNd:`                     
-          `NN`.oNd/`                        
-          `NNomm+`                    
-          `NMm+`                     
-          `NN.                     
-          `NN`                    
-          `NN`                     
-          `NN`                     
-          `NN`                    
-          `NN`                       
-          `NN`                           
-          `NN`                   
-          `NN`              
-          `NN`               
-          `NN`                             
-          `NN`                            
-          `NN`                            
-          `NN`                          
-          `NN`                       
-          `NN`                   
-     -/////NN/////-                
-     shhhhhhhhhhhhs                         
+    `---------------        
+      /m//+md//////      
+      /d`od:                
+      /Nd:               
+      /d            
+      /d              
+      /d               
+      /d               
+      /d         
+      /d         
+      /d                
+      /d                
+      /d             
+   ://sm///`        
+   --------`                           
               """)
     elif mistakes == 2:
         print("""
-                      shhhhhhhhhhhhhhhhhhhhhhhhs             
-          `NN/////oNMd/////////////NN`            
-          `NN`  .sNd:`            `NN`            
-          `NN`.oNd/`              `NN`            
-          `NNomm+`                `NN`            
-          `NMm+`                     
-          `NN.                      
-          `NN`                    
-          `NN`               
-          `NN`                   
-          `NN`                        
-          `NN`                            
-          `NN`                             
-          `NN`                     
-          `NN`                 
-          `NN`              
-          `NN`                            
-          `NN`                              
-          `NN`                          
-          `NN`                           
-          `NN`                      
-          `NN`                      
-     -/////NN/////-                 
-     shhhhhhhhhhhhs                         
+     `---------------        
+      /m//+md////////M-       
+      /d`od:         N-       
+      /Nd:           M-       
+      /d            
+      /d              
+      /d               
+      /d               
+      /d         
+      /d         
+      /d                
+      /d                
+      /d             
+   ://sm///`        
+   --------`                                    
               """)
     elif mistakes == 3:
         print("""
-                      shhhhhhhhhhhhhhhhhhhhhhhhs             
-          `NN/////oNMd/////////////NN`            
-          `NN`  .sNd:`            `NN`            
-          `NN`.oNd/`              `NN`            
-          `NNomm+`                `NN`            
-          `NMm+`                `-+NN+-`          
-          `NN.                 +dmhsshmd+         
-          `NN`                oMy.    .yMo        
-          `NN`                NM`      `MN        
-          `NN`                hM+      +Mh        
-          `NN`                `yNh+::+hNy`        
-          `NN`                  .+yMMy+.          
-          `NN`                             
-          `NN`                     
-          `NN`                 
-          `NN`              
-          `NN`                            
-          `NN`                              
-          `NN`                          
-          `NN`                           
-          `NN`                      
-          `NN`                      
-     -/////NN/////-                 
-     shhhhhhhhhhhhs                         
+    `---------------        
+      /m//+md////////M-       
+      /d`od:         N-       
+      /Nd:          .M:       
+      /d          /do/+do     
+      /d          N:   `M.    
+      /d          +d/:/hs     
+      /d           `:M+`      
+      /d           
+      /d        
+      /d                  
+      /d                
+      /d             
+   ://sm///`        
+   --------`                              
               """)
     elif mistakes == 4:
         print("""
-                      shhhhhhhhhhhhhhhhhhhhhhhhs             
-          `NN/////oNMd/////////////NN`            
-          `NN`  .sNd:`            `NN`            
-          `NN`.oNd/`              `NN`            
-          `NNomm+`                `NN`            
-          `NMm+`                `-+NN+-`          
-          `NN.                 +dmhsshmd+         
-          `NN`                oMy.    .yMo        
-          `NN`                NM`      `MN        
-          `NN`                hM+      +Mh        
-          `NN`                `yNh+::+hNy`        
-          `NN`                  .+yMMy+.          
-          `NN`                    `NN`            
-          `NN`               `-/sdNMMNds/-`       
-          `NN`             odNdho/-NN-/ohdNdo     
-          `NN`             ::.`            `.::     
-          `NN`                               
-          `NN`                           
-          `NN`                              
-          `NN`                           
-          `NN`                        
-          `NN`                       
-     -/////NN/////-                   
-     shhhhhhhhhhhhs                         
+    `---------------        
+      /m//+md////////M-       
+      /d`od:         N-       
+      /Nd:          .M:       
+      /d          /do/+do     
+      /d          N:   `M.    
+      /d          +d/:/hs     
+      /d           `:M+`      
+      /d        `:oyyMhyo/.   
+      /d        :/.      .:/   
+      /d                  
+      /d                
+      /d             
+   ://sm///`        
+   --------`                              
               """)
     elif  mistakes == 5:
         print("""
-                      shhhhhhhhhhhhhhhhhhhhhhhhs             
-          `NN/////oNMd/////////////NN`            
-          `NN`  .sNd:`            `NN`            
-          `NN`.oNd/`              `NN`            
-          `NNomm+`                `NN`            
-          `NMm+`                `-+NN+-`          
-          `NN.                 +dmhsshmd+         
-          `NN`                oMy.    .yMo        
-          `NN`                NM`      `MN        
-          `NN`                hM+      +Mh        
-          `NN`                `yNh+::+hNy`        
-          `NN`                  .+yMMy+.          
-          `NN`                    `NN`            
-          `NN`               `-/sdNMMNds/-`       
-          `NN`             odNdho/-NN-/ohdNdo     
-          `NN`             ::.`   `NN`   `.::     
-          `NN`                    `NN`            
-          `NN`                    `NN`            
-          `NN`                   `/MM/`           
-          `NN`                            
-          `NN`                       
-          `NN`                      
-     -/////NN/////-                  
-     shhhhhhhhhhhhs                         
+    `---------------        
+      /m//+md////////M-       
+      /d`od:         N-       
+      /Nd:          .M:       
+      /d          /do/+do     
+      /d          N:   `M.    
+      /d          +d/:/hs     
+      /d           `:M+`      
+      /d        `:oyyMhyo/.   
+      /d        :/.  N- .:/   
+      /d             N-       
+      /d                
+      /d             
+   ://sm///`        
+   --------`                              
               """)
     elif mistakes == 6:
         print("""
-                      shhhhhhhhhhhhhhhhhhhhhhhhs             
-          `NN/////oNMd/////////////NN`            
-          `NN`  .sNd:`            `NN`            
-          `NN`.oNd/`              `NN`            
-          `NNomm+`                `NN`            
-          `NMm+`                `-+NN+-`          
-          `NN.                 +dmhsshmd+         
-          `NN`                oMy.    .yMo        
-          `NN`                NM`      `MN        
-          `NN`                hM+      +Mh        
-          `NN`                `yNh+::+hNy`        
-          `NN`                  .+yMMy+.          
-          `NN`                    `NN`            
-          `NN`               `-/sdNMMNds/-`       
-          `NN`             odNdho/-NN-/ohdNdo     
-          `NN`             ::.`   `NN`   `.::     
-          `NN`                    `NN`            
-          `NN`                    `NN`            
-          `NN`                   `/MM/`           
-          `NN`                  -hNssNh-          
-          `NN`                `oNd:  :dNo`        
-          `NN`                yNo`    `oNh        
-     -/////NN/////-           `.        ..        
-     shhhhhhhhhhhhs                         
+    `---------------        
+      /m//+md////////M-       
+      /d`od:         N-       
+      /Nd:          .M:       
+      /d          /do/+do     
+      /d          N:   `M.    
+      /d          +d/:/hs     
+      /d           `:M+`      
+      /d        `:oyyMhyo/.   
+      /d        :/.  N- .:/   
+      /d             N-       
+      /d           `smh.      
+      /d          /d/ :do     
+   ://sm///`      :`    :`    
+   --------`                              
               """)
 
 def update_score():
