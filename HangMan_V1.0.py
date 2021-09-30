@@ -49,11 +49,14 @@ def check_word():
     global word
     global letters_used
     global incorrect_letters
+    global mistakes
     
     if guess in word:
         letters_used += guess
         word1 = word.replace(guess, "")
         word = word1
+        if mistakes > 1:
+            draw_picture()
         update_score()
     else:
         print("Oh no, that's an incorrect guess...")
