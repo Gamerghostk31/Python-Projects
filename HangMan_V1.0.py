@@ -31,10 +31,12 @@ def get_input():
     no_errors = False
     
     while no_errors is False:
+        print("____________________________________________________________________")
         guess = input("Type in any letter from A-Z:      ")
+        print("____________________________________________________________________")
         guess.lower()
         if (len(guess) <= 0 or len(guess) >= 2) or guess.isnumeric():
-            print("please type only one letter for your guess")
+            print("please type only one letter for your guess...")
             continue
         else:
             no_errors = True              
@@ -45,7 +47,8 @@ def check_word():
     global word
     
     if guess in word:
-        word.remove(guess)
+        word1 = word.replace(guess, "")
+        word = word1
         update_score()
     else:
         draw_picture()
@@ -57,17 +60,167 @@ def draw_picture():
     mistakes += 1
     
     if mistakes == 1:
-        print("Wrong...")
+        print("""
+                      shhhhhhhhhhhhhhhhhhhhhhhhs             
+          `NN/////oNMd/////////////NN`            
+          `NN`  .sNd:`                     
+          `NN`.oNd/`                        
+          `NNomm+`                    
+          `NMm+`                     
+          `NN.                     
+          `NN`                    
+          `NN`                     
+          `NN`                     
+          `NN`                    
+          `NN`                       
+          `NN`                           
+          `NN`                   
+          `NN`              
+          `NN`               
+          `NN`                             
+          `NN`                            
+          `NN`                            
+          `NN`                          
+          `NN`                       
+          `NN`                   
+     -/////NN/////-                
+     shhhhhhhhhhhhs                         
+              """)
     elif mistakes == 2:
-        print("Wrong...")
+        print("""
+                      shhhhhhhhhhhhhhhhhhhhhhhhs             
+          `NN/////oNMd/////////////NN`            
+          `NN`  .sNd:`            `NN`            
+          `NN`.oNd/`              `NN`            
+          `NNomm+`                `NN`            
+          `NMm+`                     
+          `NN.                      
+          `NN`                    
+          `NN`               
+          `NN`                   
+          `NN`                        
+          `NN`                            
+          `NN`                             
+          `NN`                     
+          `NN`                 
+          `NN`              
+          `NN`                            
+          `NN`                              
+          `NN`                          
+          `NN`                           
+          `NN`                      
+          `NN`                      
+     -/////NN/////-                 
+     shhhhhhhhhhhhs                         
+              """)
     elif mistakes == 3:
-        print("Wrong...")
+        print("""
+                      shhhhhhhhhhhhhhhhhhhhhhhhs             
+          `NN/////oNMd/////////////NN`            
+          `NN`  .sNd:`            `NN`            
+          `NN`.oNd/`              `NN`            
+          `NNomm+`                `NN`            
+          `NMm+`                `-+NN+-`          
+          `NN.                 +dmhsshmd+         
+          `NN`                oMy.    .yMo        
+          `NN`                NM`      `MN        
+          `NN`                hM+      +Mh        
+          `NN`                `yNh+::+hNy`        
+          `NN`                  .+yMMy+.          
+          `NN`                             
+          `NN`                     
+          `NN`                 
+          `NN`              
+          `NN`                            
+          `NN`                              
+          `NN`                          
+          `NN`                           
+          `NN`                      
+          `NN`                      
+     -/////NN/////-                 
+     shhhhhhhhhhhhs                         
+              """)
     elif mistakes == 4:
-        print("Wrong...")
+        print("""
+                      shhhhhhhhhhhhhhhhhhhhhhhhs             
+          `NN/////oNMd/////////////NN`            
+          `NN`  .sNd:`            `NN`            
+          `NN`.oNd/`              `NN`            
+          `NNomm+`                `NN`            
+          `NMm+`                `-+NN+-`          
+          `NN.                 +dmhsshmd+         
+          `NN`                oMy.    .yMo        
+          `NN`                NM`      `MN        
+          `NN`                hM+      +Mh        
+          `NN`                `yNh+::+hNy`        
+          `NN`                  .+yMMy+.          
+          `NN`                    `NN`            
+          `NN`               `-/sdNMMNds/-`       
+          `NN`             odNdho/-NN-/ohdNdo     
+          `NN`             ::.`            `.::     
+          `NN`                               
+          `NN`                           
+          `NN`                              
+          `NN`                           
+          `NN`                        
+          `NN`                       
+     -/////NN/////-                   
+     shhhhhhhhhhhhs                         
+              """)
     elif  mistakes == 5:
-        print("Wrong...")
+        print("""
+                      shhhhhhhhhhhhhhhhhhhhhhhhs             
+          `NN/////oNMd/////////////NN`            
+          `NN`  .sNd:`            `NN`            
+          `NN`.oNd/`              `NN`            
+          `NNomm+`                `NN`            
+          `NMm+`                `-+NN+-`          
+          `NN.                 +dmhsshmd+         
+          `NN`                oMy.    .yMo        
+          `NN`                NM`      `MN        
+          `NN`                hM+      +Mh        
+          `NN`                `yNh+::+hNy`        
+          `NN`                  .+yMMy+.          
+          `NN`                    `NN`            
+          `NN`               `-/sdNMMNds/-`       
+          `NN`             odNdho/-NN-/ohdNdo     
+          `NN`             ::.`   `NN`   `.::     
+          `NN`                    `NN`            
+          `NN`                    `NN`            
+          `NN`                   `/MM/`           
+          `NN`                            
+          `NN`                       
+          `NN`                      
+     -/////NN/////-                  
+     shhhhhhhhhhhhs                         
+              """)
     elif mistakes == 6:
-        print("Wrong...")
+        print("""
+                      shhhhhhhhhhhhhhhhhhhhhhhhs             
+          `NN/////oNMd/////////////NN`            
+          `NN`  .sNd:`            `NN`            
+          `NN`.oNd/`              `NN`            
+          `NNomm+`                `NN`            
+          `NMm+`                `-+NN+-`          
+          `NN.                 +dmhsshmd+         
+          `NN`                oMy.    .yMo        
+          `NN`                NM`      `MN        
+          `NN`                hM+      +Mh        
+          `NN`                `yNh+::+hNy`        
+          `NN`                  .+yMMy+.          
+          `NN`                    `NN`            
+          `NN`               `-/sdNMMNds/-`       
+          `NN`             odNdho/-NN-/ohdNdo     
+          `NN`             ::.`   `NN`   `.::     
+          `NN`                    `NN`            
+          `NN`                    `NN`            
+          `NN`                   `/MM/`           
+          `NN`                  -hNssNh-          
+          `NN`                `oNd:  :dNo`        
+          `NN`                yNo`    `oNh        
+     -/////NN/////-           `.        ..        
+     shhhhhhhhhhhhs                         
+              """)
 
 def update_score():
     
@@ -76,7 +229,9 @@ def update_score():
     
     score = len(word)
     
+    print("____________________________________________________________________")
     print("Good Job! You have {score} letters left to go!".format(score=score))
+    print("____________________________________________________________________")
 
 def check_game_over():
     
@@ -85,15 +240,35 @@ def check_game_over():
     global word
     
     if len(word) == 0:
-        print("You WIN!!!")
+        print("____________________________________________________________________")
+        print("""
+                                      _              ___        
+                                 \_/ / \ | |   \    / |  |\ | | 
+                                  |  \_/ |_|    \/\/ _|_ | \| o 
+                               
+              """)
+        print("____________________________________________________________________")
         game_over = True
     
     if mistakes == 6:
-        print("You lost...")
+        print("____________________________________________________________________")
+        print("""
+                                    _            _   __ ___      
+                               \_/ / \ | |   |  / \ (_   |       
+                                |  \_/ |_|   |_ \_/ __)  | o o o 
+                                    
+                               
+              """)
+        print("____________________________________________________________________")
         game_over = True
     
     if game_over:
-        print("Game over")
+        print(""" 
+                         __            _    _        _  _  
+                        /__  /\  |\/| |_   / \ \  / |_ |_) 
+                        \_| /--\ |  | |_   \_/  \/  |_ | \ 
+   
+              """)
 
 def main():
     
