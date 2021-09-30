@@ -9,6 +9,7 @@ score = ""
 mistakes = 0
 game_over = False
 letters_used = ""
+incorrect_letters = ""
 
 def pick_word():
     
@@ -47,6 +48,7 @@ def check_word():
     global guess
     global word
     global letters_used
+    global incorrect_letters
     
     if guess in word:
         letters_used += guess
@@ -54,6 +56,7 @@ def check_word():
         word = word1
         update_score()
     else:
+        incorrect_letters += guess
         draw_picture()
 
 def draw_picture():
@@ -230,12 +233,14 @@ def update_score():
     global score
     global word
     global letters_used
+    global incorrect_letters
     
     score = len(word)
     
     print("____________________________________________________________________")
     print("Good Job! You have {score} letters left to go!".format(score=score))
-    print("You've already used: {letters} ".format(letters=letters_used))
+    print("You've already used: {letters} which are correct ".format(letters=letters_used))
+    print("You've already used: {inletters} which are incorrect ".format(inletters=incorrect_letters))
     print("____________________________________________________________________")
 
 def check_game_over():
