@@ -8,6 +8,7 @@ guess = ""
 score = ""
 mistakes = 0
 game_over = False
+letters_used = ""
 
 def pick_word():
     
@@ -45,8 +46,10 @@ def check_word():
     
     global guess
     global word
+    global letters_used
     
     if guess in word:
+        letters_used += guess
         word1 = word.replace(guess, "")
         word = word1
         update_score()
@@ -226,11 +229,13 @@ def update_score():
     
     global score
     global word
+    global letters_used
     
     score = len(word)
     
     print("____________________________________________________________________")
     print("Good Job! You have {score} letters left to go!".format(score=score))
+    print("You've already used: {letters} ".format(letters=letters_used))
     print("____________________________________________________________________")
 
 def check_game_over():
@@ -240,33 +245,33 @@ def check_game_over():
     global word
     
     if len(word) == 0:
-        print("____________________________________________________________________")
+        print("################################################")
         print("""
-                                      _              ___        
-                                 \_/ / \ | |   \    / |  |\ | | 
-                                  |  \_/ |_|    \/\/ _|_ | \| o 
+                        _              ___        
+                   \_/ / \ | |   \    / |  |\ | | 
+                    |  \_/ |_|    \/\/ _|_ | \| o 
                                
               """)
-        print("____________________________________________________________________")
+        print("################################################")
         game_over = True
     
     if mistakes == 6:
-        print("____________________________________________________________________")
+        print("################################################")
         print("""
-                                    _            _   __ ___      
-                               \_/ / \ | |   |  / \ (_   |       
-                                |  \_/ |_|   |_ \_/ __)  | o o o 
+                         _            _   __ ___      
+                    \_/ / \ | |   |  / \ (_   |       
+                     |  \_/ |_|   |_ \_/ __)  | o o o 
                                     
                                
               """)
-        print("____________________________________________________________________")
+        print("################################################")
         game_over = True
     
     if game_over:
         print(""" 
-                         __            _    _        _  _  
-                        /__  /\  |\/| |_   / \ \  / |_ |_) 
-                        \_| /--\ |  | |_   \_/  \/  |_ | \ 
+                 __            _    _        _  _  
+                /__  /\  |\/| |_   / \ \  / |_ |_) 
+                \_| /--\ |  | |_   \_/  \/  |_ | \ 
    
               """)
 
