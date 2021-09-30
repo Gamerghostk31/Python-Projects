@@ -56,8 +56,10 @@ def check_word():
         word = word1
         update_score()
     else:
+        print("Oh no, that's an incorrect guess...")
         incorrect_letters += guess
         draw_picture()
+        update_score()
 
 def draw_picture():
     
@@ -184,9 +186,9 @@ def update_score():
     score = len(word)
     
     print("____________________________________________________________________")
-    print("Good Job! You have {score} letters left to go!".format(score=score))
-    print("You've already used: {letters} which are correct ".format(letters=letters_used))
-    print("You've already used: {inletters} which are incorrect ".format(inletters=incorrect_letters))
+    print("You have {score} letters left to go!".format(score=score))
+    print("Correct: {letters}".format(letters=letters_used))
+    print("Incorect: {inletters}".format(inletters=incorrect_letters))
     print("____________________________________________________________________")
 
 def check_game_over():
