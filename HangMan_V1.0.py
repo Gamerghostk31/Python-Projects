@@ -45,6 +45,7 @@ def check_word():
     global word
     
     if guess in word:
+        word.remove(guess)
         update_score()
     else:
         draw_picture()
@@ -81,12 +82,18 @@ def check_game_over():
     
     global game_over
     global mistakes
+    global word
+    
+    if len(word) == 0:
+        print("You WIN!!!")
+        game_over = True
     
     if mistakes == 6:
+        print("You lost...")
         game_over = True
     
     if game_over:
-        print("Game over!")
+        print("Game over")
 
 def main():
     
