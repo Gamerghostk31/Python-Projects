@@ -1,7 +1,7 @@
 import random
 import time
 
-wordlist = {1:"air conditioner", 2:"fighter jet", 3:"cheese pizza", 4:"pineapple", 5:"bacon and eggs", 6:"television", 7:"amberella", 8:"brocolli", 9:"cauliflower", 10:"casava root"}
+wordlist = {1:"air conditioner", 2:"fighter jet", 3:"cheese pizza", 4:"pineapple", 5:"bacon and eggs", 6:"television", 7:"umbrella", 8:"brocolli", 9:"cauliflower", 10:"chocolate"}
 
 word = ""
 guess = ""
