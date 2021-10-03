@@ -10,6 +10,7 @@ ship_positions = []
 ammo = 0
 game_over = False
 
+# Methods
 def create_grid():
     pass
 
@@ -31,6 +32,7 @@ def check_ship_hit():
 def check_game_over():
     pass
 
+# Main Method
 def main():
     pass
 
