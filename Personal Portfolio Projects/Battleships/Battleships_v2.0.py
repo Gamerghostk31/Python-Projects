@@ -1,7 +1,8 @@
+# Modules Needed
 import random
 import time
 
-# Global Variables
+# Global Variables Needed
 grid = []
 grid_size = 10
 num_of_ships = 8
@@ -10,7 +11,7 @@ ship_positions = []
 ammo = 0
 game_over = False
 
-# Methods
+# Methods Needed
 def create_grid():
     pass
 
