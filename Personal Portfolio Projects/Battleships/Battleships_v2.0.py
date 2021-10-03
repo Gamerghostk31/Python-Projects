@@ -151,7 +151,9 @@ def bullet_placement():
     row = -1
     col = -1
     while no_errors_with_shot is False:
+        print("##################################################")
         placement = input("Enter a row and column to attack, like \"B5\":    ")
+        print("##################################################")
         placement = placement.upper()
         if len(placement) <= 0 or len(placement) > 2:
             print("Error: Please enter only one row and column")
@@ -233,10 +235,11 @@ def main():
     
     while game_over is False:
         print_grid()
-        print("There are {ships} ships remaining, You have sunk {ships_sunk} ships".format(ships=num_of_ships, ships_sunk=num_ships_sunk))
+        print("__________________________________________________")
+        print("There are {ships} ships remaining, You have sunk {ships_sunk} ships".format(ships=num_of_ships, ships_sunk=ships_sunk))
         print("You have {ammo} rounds of ammo remaining".format(ammo=ammo))
         shoot()
-        print("________________________________")
+        print("__________________________________________________")
         print("")
         check_game_over()
 
