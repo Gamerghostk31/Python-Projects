@@ -13,9 +13,24 @@ game_over = False
 
 # Methods Needed
 def create_grid():
-    pass
+    
+    global grid
+    global grid_size
+    
+    rows, cols = grid_size, grid_size
+    
+    for row in rows:
+        row_list = []
+        for col in cols:
+            row_list.append(".")
+        grid.append(row_list)
+            
+    
 
 def create_ship_positions():
+    pass
+
+def print_grid():
     pass
 
 def check_ships_in_range():
