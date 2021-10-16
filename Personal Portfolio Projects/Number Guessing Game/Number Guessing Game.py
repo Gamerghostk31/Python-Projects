@@ -5,8 +5,8 @@
 # the difficulty is set on hard it will give a clue. For every wrong guess, points are deducted. The aim is to guess the number before your score reaches 0
 # The score will be saved in a text file and display the highest score for each difficulty on the next game. 
 
-from random import randint, random
-from datetime import time
+import random
+import time
 
 score = 1000
 game_over = False
@@ -16,9 +16,11 @@ user_input = ""
 class number_generator():
     
     global random
+    global time
     
     def __init__(self, game_difficulty):
         self.game_difficulty = game_difficulty
+        print(f"\nYou chose {self.game_difficulty} mode!\n")
         
 
     def setGameDifficulty(self):
@@ -56,10 +58,10 @@ def main_menu():
                 _   _  _     __            _ 
  |\ | | | |\/| |_) |_ |_)   /__  /\  |\/| |_ 
  | \| |_| |  | |_) |_ | \   \_| /--\ |  | |_ 
+    
     BY BASSON KOCH
                                             
-        """)
-    
+        """)   
     
 def select_difficulty():
 
@@ -68,10 +70,8 @@ def select_difficulty():
     no_errors = False
     
     while no_errors is False:
-        user_input = input("Select a difficulty!  Normal\/Hard  :    ")
-        if user_input.isnumeric:
-            print("Please type in letters, not numbers")
-        elif user_input == None:
+        user_input = input("Select a difficulty!  Normal/Hard  :    ")
+        if user_input == None:
             print("Please type in \"normal\" or \"hard\"")
         elif user_input == "Normal" or user_input == "normal" or user_input == "NORMAL":
             user_input = user_input.lower()
@@ -82,10 +82,10 @@ def select_difficulty():
         else:
             print("Please type in \"normal\" or \"hard\"")
     
-
-
 def main():
     
+    
+
     global score
     global game_over
     global user_input
@@ -93,7 +93,7 @@ def main():
     main_menu()
     select_difficulty()
     number = number_generator(user_input)
-    number.setGameDifficulty()
+    print(number.setGameDifficulty())
 
 if __name__ == '__main__':
     main()
