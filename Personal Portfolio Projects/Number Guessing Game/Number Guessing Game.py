@@ -8,6 +8,9 @@
 from random import randint, random
 from datetime import time
 
+score = 1000
+game_over = False
+user_input = ""
 
 
 class number_generator():
@@ -30,10 +33,67 @@ class number_generator():
             return self.number
 
 def check_game_over():
+    
+    global score
+    global game_over
+
+def user_move():
     pass
 
-def main():
+def check_number():
     pass
+
+def edit_score():
+    pass
+
+def save_high_scores():
+    pass
+
+def main_menu():
+
+    print("""
+    WELCOME TO
+                _   _  _     __            _ 
+ |\ | | | |\/| |_) |_ |_)   /__  /\  |\/| |_ 
+ | \| |_| |  | |_) |_ | \   \_| /--\ |  | |_ 
+    BY BASSON KOCH
+                                            
+        """)
+    
+    
+def select_difficulty():
+
+    global user_input
+    
+    no_errors = False
+    
+    while no_errors is False:
+        user_input = input("Select a difficulty!  Normal\/Hard  :    ")
+        if user_input.isnumeric:
+            print("Please type in letters, not numbers")
+        elif user_input == None:
+            print("Please type in \"normal\" or \"hard\"")
+        elif user_input == "Normal" or user_input == "normal" or user_input == "NORMAL":
+            user_input = user_input.lower()
+            no_errors = True
+        elif user_input == "Hard" or user_input == "hard" or user_input == "HARD":
+            user_input = user_input.lower()
+            no_errors = True
+        else:
+            print("Please type in \"normal\" or \"hard\"")
+    
+
+
+def main():
+    
+    global score
+    global game_over
+    global user_input
+    
+    main_menu()
+    select_difficulty()
+    number = number_generator(user_input)
+    number.setGameDifficulty()
 
 if __name__ == '__main__':
     main()
