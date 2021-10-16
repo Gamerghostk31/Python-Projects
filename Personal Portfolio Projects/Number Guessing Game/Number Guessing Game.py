@@ -1,9 +1,19 @@
 # Number Guessing Game
 # Author & Date: Basson Koch | 16/10/2021
-# The player will start out with 100 points, after which the computer will prompt the player
-# to select a difficulty. Normal (1 - 10) and Hard (1 - 100) the computer will then choose a a number in that range and if 
-# the difficulty is set on hard it will give a clue. For every wrong guess, points are deducted. The aim is to guess the number before your score reaches 0
-# The score will be saved in a text file and display the highest score for each difficulty on the next game. 
+
+# IMPORTANT!!!!
+# To run the game correctly, make sure the terminal is in the directory of the .py and json files.
+
+# PLEASE_NOTE!!!
+# Turn Dev Mode off to experience true "HARD MODE" (Normal mode is always easy)
+
+dev_mode = True
+
+# The computer will pick a number from (1 - 10 / Normal) or (1 - 100 / Hard). 
+# The player will gain points for how close your guess is to the correct number.
+# Closer means more points, further less points. After you guess the number, your remaining turns will act as bonus points. 
+# Solve the number faster for a higher score.
+# If you have the highest score. You will become the CHAMPION!
 
 import random
 import time
@@ -15,7 +25,6 @@ user_input = None
 user_guess = 0
 random_number = 0
 user_win = False
-dev_mode = True
 user_guesses = []
 exit = False
 
@@ -26,6 +35,7 @@ class number_generator():
     
     def __init__(self, game_difficulty):
         self.game_difficulty = game_difficulty
+        print("_____________________________________________")
         print(f"\nYou chose {self.game_difficulty} mode!\n")
         
 
@@ -47,36 +57,47 @@ def check_game_over():
     global score
     global game_over
     global user_win
+    global random_number
 
     if number.turns == 0 and user_win == False:
+        
         print("""\n
   __            _    _        _  _  
  /__  /\  |\/| |_   / \ \  / |_ |_) 
  \_| /--\ |  | |_   \_/  \/  |_ | \ 
                                     
         """)
-        print("\nYour score is:  " + str(score))
+        
+        print(f"The correct number was:   {random_number}")
+        print("\nYour score is:   " + str(score))
+        
         game_over = True
     elif user_win == True:
         if number.game_difficulty == "hard":
             score = score + (number.turns * 100)
+            
             print("""\n
       _              ___      
  \_/ / \ | |   \    / |  |\ | 
   |  \_/ |_|    \/\/ _|_ | \| 
                               
             """)
+            
             print("Your score is:  " + str(score) + "\n")
+            
             game_over = True
         elif number.game_difficulty == "normal":
             score = score + (number.turns * 10)
+            
             print("""\n
       _              ___      
  \_/ / \ | |   \    / |  |\ | 
   |  \_/ |_|    \/\/ _|_ | \| 
                               
             """)
+            
             print("Your score is:  " + str(score) + "\n")
+            
             game_over = True
 
 def user_move():
@@ -87,16 +108,20 @@ def user_move():
     no_errors = False
 
     guess_string = ""
-    print(f"Turns Left: {number.turns}\n")
+    print("_____________________________________________")
+    print(f"\nTurns Left: {number.turns}")
     print("Total Score:   " + str(score)+"\n")
+    print("_____________________________________________")
 
     if len(user_guesses) == 0:
         pass
     else:
+        user_guesses.sort()
         for i in range(len(user_guesses)):
             guess_string += " " + str(user_guesses[i]) + " "
             
-        print(f"You've already guessed: {guess_string}\n")
+        print(f"\nYou've already guessed the numbers: {guess_string}\n")
+        
 
     while no_errors is False:
         num_range = None
@@ -105,7 +130,9 @@ def user_move():
         elif number.game_difficulty == "hard":
             num_range = "1 - 100"
 
-        user_guess = input("Guess any number from " + num_range + "\n:     ")
+        
+        user_guess = input("\nGuess any number from " + num_range + "\n:     ")
+        
         if user_guess.isalpha():
             print("_____________________________________________")
             print("ERROR: please type in a number!")
@@ -120,9 +147,20 @@ def user_move():
             print("_____________________________________________")
         elif user_guess in user_guesses:
             print("_____________________________________________")
-            print("ERROR: You can't guess the same number twice...")
+            print("ERROR: You can't guess the same number twice\n \n-1 TURN AS PENALTY")
+            number.turns -= 1
             print("_____________________________________________")
         else:
+            print("")
+            print("")
+            print("")
+            print("")
+            print("")
+            print("")
+            print("")
+            print("")
+            print("")
+            print("_____________________________________________\n")
             print("YOUR GUESS: " + str(user_guess)+ "\n")
 
             user_guesses.append(user_guess)
@@ -142,10 +180,19 @@ def check_number():
     
     if number.game_difficulty == "hard":
         
-        if difference > 0 and difference <= 10 or difference < 0 and difference >= -10:
+        if random_number == int(user_guess):
+            score += 100
+            print('You guessed the number! Well Done!')
+            user_win = True
+
+        elif difference >= 1 and difference <= 5 or difference <= 1  and difference >= -5:
+            score += 35
+            print("SOOOO CLOSE! \nYou gained 35 points")
+
+        elif difference > 5 and difference <= 10 or difference < 5 and difference >= -10:
             score += 30
             print("CLOSE! \nYou gained 30 points")
-            
+
         elif difference > 10 and difference <= 20 or difference < -10 and difference >= -20:
             score += 20
             print("Almost, \nYou gained 20 points")
@@ -154,10 +201,7 @@ def check_number():
             score += 10
             print("Not quite, \nYou gained 10 points")
             
-        elif difference == 0:
-            score += 100
-            print('You guessed the number! Well Done!')
-            user_win = True
+        
         else:
             score += 0
             print("Ouch! That guess was too far away. \nYou gained 0 points")
@@ -165,22 +209,24 @@ def check_number():
     
     elif number.game_difficulty == "normal":
         
-        if difference > 0 and difference <= 1 or difference < 0 and difference >= -1:
-            score += 3
-            print("CLOSE! \nYou gained 30 points")
-            
-        elif difference > 1 and difference <= 2 or difference < -1 and difference >= -2:
-            score += 2
-            print("Almost, \nYou gained 20 points")
-            
-        elif difference > 2 and difference <= 3 or difference < -2 and difference >= -3:
-            score += 1
-            print("Not quite, \nYou gained 10 points")
-        elif difference == 0:
+        if random_number == int(user_guess):
             score += 10
             print('You guessed the number! Well Done!')
             
             user_win = True
+        
+        elif difference == 1 or difference == -1:
+            score += 3
+            print("CLOSE! \nYou gained 3 points")
+            
+        elif difference == 2 or difference == -2:
+            score += 2
+            print("Almost, \nYou gained 2 points")
+            
+        elif difference == 3 or difference == -3:
+            score += 1
+            print("Not quite, \nYou gained 1 point")
+        
         else:
             score += 0
             print("Ouch! That guess was too far away. \nYou gained 0 points")
@@ -208,7 +254,9 @@ def print_current_high_score():
                 current_high = score_data["high_score"]
                 champ_mode = score_data["mode"]
 
-    print(f"The current champion is {current_champ}, with a score of {current_high} in {champ_mode} mode.")
+    print("_____________________________________________")
+    print(f"The current champion is {current_champ} \nwith a score of {current_high} in {champ_mode} mode.")
+    print("_____________________________________________")
 
 def save_high_scores():
 
@@ -217,11 +265,13 @@ def save_high_scores():
     
     no_errors = False
     while no_errors is False:
-        username = input("Please write your username?\n:     ")
+        username = input("Please write your username  \n:         ")
         no_confirm_errors = False
         while no_confirm_errors is False:
         
-            confirm = input(f"Are you sure you want :{username} as youe username? (Y/N)\n:    ")
+            confirm = input(f"Are you sure you want {username} as your username? (Y/N)\n:    ")
+            confirm = confirm.upper()
+
             if confirm == "Y":
                 no_confirm_errors = True
                 no_errors = True
@@ -229,9 +279,9 @@ def save_high_scores():
                 no_errors = False
                 no_confirm_errors = True
             else:
-                print("_______________________________________________________________")
+                print("_____________________________________________")
                 print("ERROR:  Please type \"Y\" or \"N\" to confirm your username...")
-                print("_______________________________________________________________")
+                print("_____________________________________________")
     
     turn_to_json = {'username':username, "high_score":score, "mode":number.game_difficulty}
 
@@ -276,14 +326,16 @@ def play_again():
 
     global exit
 
-    again = input("Play again? (Y/N) \n:   ")
+    again = input("Play again?      Type (Y/N) \n:         ")
     again = again.upper()
     no_error = False
     while no_error is False:
         if again == "Y":
             exit = False
+            no_error = True
         elif again == "N":
             exit = True
+            no_error = True
         else:
             print("_____________________________________________")
             print("ERROR:  Please type \"Y\" or \"N\"")
@@ -291,14 +343,28 @@ def play_again():
 
 def main_menu():
     print("""
-________________________________________________
-    WELCOME TO
-                _   _  _     __            _ 
- |\ | | | |\/| |_) |_ |_)   /__  /\  |\/| |_ 
- | \| |_| |  | |_) |_ | \   \_| /--\ |  | |_ 
+______________________________________________________________________________________________
+                                    WELCOME TO
+                                   _   _  _     __            _ 
+                    |\ | | | |\/| |_) |_ |_)   /__  /\  |\/| |_ 
+                    | \| |_| |  | |_) |_ | \   \_| /--\ |  | |_ 
     
-    BY BASSON KOCH
-_______________________________________________                                            
+                                  BY BASSON KOCH
+______________________________________________________________________________________________                                            
+        The computer will pick a number from (1 - 10 / Normal) or (1 - 100 / Hard). 
+
+        The player will gain points for how close the guess is to the correct number.
+
+                        Closer means more points, further less points. 
+        
+        After you guess the number, your remaining turns will act as bonus points. 
+        
+                        Solve the number faster for a higher score.
+    
+                If you have the highest score. You will become the CHAMPION!  
+
+                                    GOODLUCK player    
+______________________________________________________________________________________________        
         """)   
     
 def select_difficulty():
@@ -333,10 +399,18 @@ def main():
     global user_input
     global random_number
     global dev_mode
+    global total_score
+    global user_guesses
     
     
     while exit == False:
+        
+        if game_over:
+            game_over = False
+            total_score = 0
+            user_guesses = []
 
+        
         main_menu()
 
         select_difficulty()
@@ -350,15 +424,16 @@ def main():
             if dev_mode == True:
                 print(random_number)
             user_move()
-            print("_________________________________")
+            print("_____________________________________________")
             check_number()
-            print("_________________________________")
+            print("_____________________________________________")
             check_game_over()
         
         save_high_scores()
         play_again()
     
-    exit
+    
+    exit()
 
 if __name__ == '__main__':
     main()
