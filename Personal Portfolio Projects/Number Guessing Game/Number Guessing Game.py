@@ -16,9 +16,12 @@ class number_generator():
     
     def __init__(self, game_difficulty):
         self.game_difficulty = game_difficulty
+        
 
     def setGameDifficulty(self):
         
+        random.seed(time.time())
+
         if self.game_difficulty == "hard":
             self.number = random.randint(1, 100)
             return self.number
