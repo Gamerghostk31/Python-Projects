@@ -35,6 +35,15 @@ class number_generator():
     
     def __init__(self, game_difficulty):
         self.game_difficulty = game_difficulty
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
         print("_____________________________________________")
         print(f"\nYou chose {self.game_difficulty} mode!\n")
         
@@ -137,11 +146,11 @@ def user_move():
             print("_____________________________________________")
             print("ERROR: please type in a number!")
             print("_____________________________________________")
-        elif len(user_guess) > 1 and number.game_difficulty == "normal":
+        elif int(user_guess) > 10 and number.game_difficulty == "normal" or int(user_guess) < 1 and number.game_difficulty == "normal":
             print("_____________________________________________")
             print("ERROR: Please pick a number from " + num_range)
             print("_____________________________________________")
-        elif len(user_guess) > 2 and number.game_difficulty == "hard":
+        elif int(user_guess) > 100 and number.game_difficulty == "hard" or int(user_guess) < 1 and number.game_difficulty == "hard":
             print("_____________________________________________")
             print("ERROR: Please pick a number from " + num_range)
             print("_____________________________________________")
@@ -175,7 +184,7 @@ def check_number():
     global random_number
     global score
     global user_win
-
+    
     difference = random_number - int(user_guess)
     
     if number.game_difficulty == "hard":
@@ -298,6 +307,7 @@ def save_high_scores():
                     print("You are the new Champion!")
                     higher_score = True
             else:
+                print("_____________________________________________")
                 print("You did not defeat the Champion!")
                 
         if higher_score:
@@ -320,7 +330,10 @@ def save_high_scores():
             with open("high_score_hard.json", "w") as json_data:
                 json.dump(turn_to_json, json_data)
     
-    print("High score saved...")
+    if higher_score:
+        print("High score saved...")
+        higher_score = False
+    print("_____________________________________________")
         
 def play_again():
 
@@ -392,25 +405,23 @@ def select_difficulty():
     
 def main():
     
-    
     global number
     global score
     global game_over
     global user_input
     global random_number
     global dev_mode
-    global total_score
     global user_guesses
-    
+    global user_win
     
     while exit == False:
         
         if game_over:
             game_over = False
-            total_score = 0
+            user_win = False
+            score = 0
             user_guesses = []
 
-        
         main_menu()
 
         select_difficulty()
@@ -433,7 +444,6 @@ def main():
         play_again()
     
     
-    exit()
 
 if __name__ == '__main__':
     main()
