@@ -9,10 +9,10 @@ for value in my_values:
         for i in range(2, value):
 
             if (value % i) == 0:
-                primes.append(value)
+                not_primes.append(value)
                 break
             else:
-                not_primes.append(value)
+                primes.append(value)
                 break
 
 print("Prime Numbers:", primes)
